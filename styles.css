@@ -4,6 +4,17 @@ body {
     align-items: center;
 }
 
+.landing-page {
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+    max-width: 900px;
+    background-color: lightgreen;
+}
+
 .game-container {
     display: flex;
     flex-direction: column;
@@ -11,6 +22,7 @@ body {
     align-items: center;
     width: 80%;
     height: 100%;
+    max-width: 900px;
     background-color: lightgreen;
 }
 
@@ -34,19 +46,112 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 10%;
+    width: 13%;
     height: 90%;
     background-color: beige;
     transition: 0.5s;
 }
 
 .menu-item:hover {
-    width: 12%;
-    height: 100%;
+    width: 15%;
+    height: 95%;
 }
 
 #section-player {
     background-color: black;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#section-player div {
+    width: 93%;
+    height: 98%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#section-player div div {
+    background-color: white;
+    width: 100%;
+    height: 49.5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#section-player div div #player-avatar {
+    background-color: burlywood;
+    width: 30%;
+    height: 100%;
+}
+
+#section-player div div #player-description {
+    background-color: burlywood;
+    width: 39%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#section-player div div #player-description p {
+    width: 95%;
+    text-align: center;
+}
+
+#section-player div div #player-info {
+    background-color: burlywood;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#section-player div div #player-info p {
+    margin: auto 3%;
+}
+
+#section-player div .skills {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#section-player div .skills .outer-skill {
+    background-color: darkslategray;
+    width: 99%;
+    height: 13%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#section-player div .skills .inner-skill {
+    background-color: lightskyblue;
+    height: 90%;
+    width: 10%;
+    margin-left: 0.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1%;
+}
+
+#section-player #reputation-bar-outer {
+    background-color: white;
+    width: 4%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+#section-player #reputation-bar-outer #reputation-bar-inner {
+    background-color: blue;
+    width: 100%;
+    height: 45%;
 }
 
 #section-training {
