@@ -8,9 +8,7 @@
     <body>
         <div class="landing-page">
             <div id="login-form">
-                <input type="text" id="username" placeholder="Username" required>
-                <input type="password" id="password" placeholder="Password" required>
-                <input type="button" id="login-button" value="Login">
+                <input type="button" id="login-button" value="Login with Google">
             </div>
         </div>
         <div class="game-container">
@@ -18,14 +16,14 @@
                 <div>
                     <div>
                         <div id="player-avatar"></div>
-                        <div id="player-description">
+                        <div id="player-info-description">
                             <p>Hi i'm chef and i like to cook some goals</p>
                         </div>
                         <div id="player-info">
                             <p>Name: <span id="player-info-name">chef</span></p>
                             <p>Country: <span id="player-info-country">Zambia</span></p>
-                            <p>Birthday: <span id="player-info-birthday">05/04/1989</span> (Age: <span id="player-info-age">34</span>)</p>
-                            <p>Started playing: <span id="player-info-startday">17/06/2023</span></p>
+                            <p>Birthday: <span id="player-info-bday">05/04/1989</span> (Age: <span id="player-info-age">34</span>)</p>
+                            <p>Started playing: <span id="player-info-start-day">17/06/2023</span></p>
                             <p>Club: <span id="player-info-club">---</span></p>
                             <p>Position: <span id="player-info-position">Goal Keeper</span></p>
                             <p>Skill level: <span id="player-info-skill-level">10</span></p>
@@ -34,7 +32,7 @@
                     </div>
                     <div class="skills">
                         <div class="outer-skill" id="skill-bar-1-outer">
-                            <div class="inner-skill" id="skill-bar-1-inner">Passing/Receiving</div>
+                            <div class="inner-skill" id="skill-bar-1-inner"></div>
                         </div>
                         <div class="outer-skill" id="skill-bar-2-outer">
                             <div class="inner-skill" id="skill-bar-2-inner"></div>
@@ -77,7 +75,6 @@
             </div>
         </div>
         
-        
-        <script src="/app.js"></script>
+        <script type="module" src="/app.js"></script>
     </body>
 </html>

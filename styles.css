@@ -2,25 +2,26 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rebe;
 }
 
 .landing-page {
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    width: 80%;
+    width: 100%;
     height: 100%;
     max-width: 900px;
     background-color: lightgreen;
 }
 
 .game-container {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    width: 80%;
+    width: 100%;
     height: 100%;
     max-width: 900px;
     background-color: lightgreen;
@@ -86,7 +87,7 @@ body {
     height: 100%;
 }
 
-#section-player div div #player-description {
+#section-player div div #player-info-description {
     background-color: burlywood;
     width: 39%;
     height: 100%;
@@ -96,7 +97,7 @@ body {
     align-items: center;
 }
 
-#section-player div div #player-description p {
+#section-player div div #player-info-description p {
     width: 95%;
     text-align: center;
 }
@@ -131,13 +132,13 @@ body {
 
 #section-player div .skills .inner-skill {
     background-color: lightskyblue;
-    height: 90%;
-    width: 10%;
+    height: 40%;
     margin-left: 0.5%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 1%;
+    white-space: nowrap;
 }
 
 #section-player #reputation-bar-outer {
@@ -151,7 +152,6 @@ body {
 #section-player #reputation-bar-outer #reputation-bar-inner {
     background-color: blue;
     width: 100%;
-    height: 45%;
 }
 
 #section-training {
