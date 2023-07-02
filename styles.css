@@ -2,7 +2,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rebe;
+    font-family: "Kanit", sans-serif;
+}
+
+div {
+    border-radius: 10px;
 }
 
 .landing-page {
@@ -11,26 +15,35 @@ body {
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
-    height: 100%;
     max-width: 900px;
     background-color: lightgreen;
+    aspect-ratio: 5/4;
 }
 
-.game-container {
+.new-player {
     display: none;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
-    height: 100%;
     max-width: 900px;
     background-color: lightgreen;
+    aspect-ratio: 5/4;
+}
+
+.game-container {
+    display: none;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80% 1fr;
+    gap: 10px;
+    width: 100%;
+    max-width: 900px;
+    background-color: lightgreen;
+    aspect-ratio: 5/4;
+    padding: 4px;
 }
 
 .section {
-    width: 98%;
-    height: 80%;
-    background-color: aqua;
     display: none;
 }
 
@@ -38,8 +51,6 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 98%;
-    height: 15%;
     background-color: burlywood;
 }
 
@@ -59,78 +70,52 @@ body {
 }
 
 #section-player {
-    background-color: black;
-    justify-content: space-evenly;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 6fr 7fr 6fr 1fr;
+    grid-template-rows: 7fr repeat(7, 1fr);
+    gap: 4px 8px;
 }
 
-#section-player div {
-    width: 93%;
-    height: 98%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-#section-player div div {
-    background-color: white;
-    width: 100%;
-    height: 49.5%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-#section-player div div #player-avatar {
+#section-player #player-avatar {
     background-color: burlywood;
-    width: 30%;
-    height: 100%;
+    grid-area: 1 / 1 / 2 / 2;
 }
 
-#section-player div div #player-info-description {
+#section-player #player-info-description {
     background-color: burlywood;
-    width: 39%;
-    height: 100%;
+    grid-area: 1 / 2 / 2 / 3;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
-#section-player div div #player-info-description p {
+#section-player #player-info-description p {
     width: 95%;
     text-align: center;
 }
 
-#section-player div div #player-info {
+#section-player #player-info {
     background-color: burlywood;
-    width: 30%;
-    height: 100%;
+    grid-area: 1 / 3 / 2 / 4;
     display: flex;
     flex-direction: column;
 }
 
-#section-player div div #player-info p {
+#section-player #player-info p {
     margin: auto 3%;
 }
 
-#section-player div .skills {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-#section-player div .skills .outer-skill {
+#section-player .outer-skill {
     background-color: darkslategray;
-    width: 99%;
-    height: 13%;
+    grid-column: 1 / 4;
+    grid-row-end: span 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-#section-player div .skills .inner-skill {
+#section-player .inner-skill {
     background-color: lightskyblue;
     height: 40%;
     margin-left: 0.5%;
@@ -139,11 +124,12 @@ body {
     justify-content: center;
     padding: 1%;
     white-space: nowrap;
+    color: white;
 }
 
 #section-player #reputation-bar-outer {
+    grid-area: 1 / 4 / 9 / 5;
     background-color: white;
-    width: 4%;
     display: flex;
     flex-direction: column;
     justify-content: end;
@@ -155,14 +141,85 @@ body {
 }
 
 #section-training {
-    background-color: aqua;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr repeat(2, 8fr);
+    gap: 4px;
+}
+
+#section-training .energy-bar-outer {
+    grid-area: 1 / 1 / 1 / 3;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: begin;
+}
+
+#section-training .energy-bar-inner {
+    background-color: blue;
+    height: 100%;
+    width: 55%;
+}
+
+#section-training .training-session-card {
+    background-color: darkblue;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 2fr repeat(3, 1fr);
+    gap: 4px;
+    color: white;
+    padding: 4px;
+}
+
+#section-training .training-session-card .training-session-card-title {
+    grid-area: 1 / 1 / 2 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#section-training .training-session-card .training-session-card-description {
+    grid-area: 2 / 1 / 3 / 3;
+    display: flex;
+    align-items: center;
+}
+
+#section-training .training-session-card .training-session-card-duration {
+    grid-area: 3 / 1 / 4 / 2;
+    display: flex;
+    align-items: center;
+}
+
+#section-training .training-session-card .training-session-card-reward {
+    grid-area: 3 / 2 / 4 / 3;
+    display: flex;
+    align-items: center;
+}
+
+#section-training .training-session-card .training-session-card-increase {
+    grid-area: 4 / 1 / 5 / 2;
+    display: flex;
+    align-items: center;
+}
+
+#section-training .training-session-card .training-session-card-bonus {
+    grid-area: 4 / 2 / 5 / 3;
+    display: flex;
+    align-items: center;
+}
+
+#section-training .training-session-card .training-session-card-begin {
+    grid-area: 5 / 1 / 6 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: brown;
 }
 
 #section-clubhouse {
     background-color: red;
 }
 
-#section-equipment {
+#section-work {
     background-color: green;
 }
 

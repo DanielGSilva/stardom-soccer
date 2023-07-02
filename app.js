@@ -27,19 +27,15 @@ let loginForm = document.querySelector("#login-form")
 
 //SECTION AND MENU VARIABLES
 let gameContainer = document.body.querySelector(".game-container")
-let menu = gameContainer.querySelector(".menu")
 
-const SECTIONS = ["player", "training", "clubhouse", "equipment", "snacks", "classification", "messages"]
+const SECTIONS = ["player", "training", "clubhouse", "work", "snacks", "classification", "messages"]
 let activeSection = 0 //always begins in the player section
-
-//PLAYER SECTION VARIABLES
-let reputationBarOuter = document.getElementById("reputation-bar-outer")
 
 const POSITIONS = ["Goal Keeper", "Defender", "Midfielder", "Attacker"]
 const SKILLS = [
     ["Passing/Receiving", "passing-points"],
     ["Speed", "speed-points"],
-    ["Resistance", "resistance-points"],
+    ["Endurance", "endurance-points"],
     ["Footwork", "footwork-points"],
     ["Diving", "diving-points"],
     ["Catching", "catching-points"],
@@ -79,8 +75,8 @@ const SKILL_TIERS = [
 //Login action
 loginForm.querySelector("#login-button").onclick = function (event) {
     signInWithRedirect(auth, provider)
-    
 }
+
 getRedirectResult(auth).then((result) => {
     if (result) {
         const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -93,12 +89,11 @@ getRedirectResult(auth).then((result) => {
         initPlayer(user)
         if (additionalInfo.isNewUser) {
             createPlayer(user)
+        } else {
+            initGame()
+            document.querySelector(".landing-page").style.display = "none"
+            gameContainer.style.display = "grid"
         }
-        
-        initGame(user)
-        
-        document.querySelector(".landing-page").style.display = "none"
-        gameContainer.style.display = "flex"
     }
 })
 
@@ -108,40 +103,50 @@ function initPlayer(user) {
 }
 
 function createPlayer() {
-    set(playerRef, {
-        "player-info": {
-            "name": "chef",
-            "country": "Cabodja",
-            "bday": new Date("04/02/2000").toDateString(),
-            "start-day": new Date().toDateString(),
-            "club": "N/A",
-            "position": 0,
-            "description": "Hi i'm chef and i like to cook some goals"
-        },
-        "player-skills": {
-            "rep-points": 10,
-            "passing-points": 10,
-            "speed-points": 10,
-            "resistance-points": 10,
-            "footwork-points": 10,
-            "diving-points": 10,
-            "catching-points": 10,
-            "reaction-speed-points": 10,
-            "tackling-points": 10,
-            "1v1-defending-points": 10,
-            "intercepting-points": 10,
-            "decision-making-points": 10,
-            "touch-and-ball-control-points": 10,
-            "shooting-points": 10,
-            "dribling-points": 10,
-            "off-the-ball-movement-points": 10,
-            "heading-points": 10,
-        }
-    })
+    document.querySelector(".landing-page").style.display = "none"
+    document.querySelector(".new-player").style.display = "flex"
+    
+    document.querySelector("#create-new-player-button").onclick = function (event) {
+        set(playerRef, {
+            "player-info": {
+                "name": document.getElementById("new-player-name").value,
+                "country": document.getElementById("new-player-country").value,
+                "bday": new Date(document.getElementById("new-player-bday").value).toDateString(),
+                "start-day": new Date().toDateString(),
+                "club": "N/A",
+                "position": Number(document.getElementById("new-player-position").value),
+                "description": ""
+            },
+            "player-skills": {
+                "rep-points": 0,
+                "passing-points": 10,
+                "speed-points": 10,
+                "endurance-points": 10,
+                "footwork-points": 10,
+                "diving-points": 10,
+                "catching-points": 10,
+                "reaction-speed-points": 10,
+                "tackling-points": 10,
+                "1v1-defending-points": 10,
+                "intercepting-points": 10,
+                "decision-making-points": 10,
+                "touch-and-ball-control-points": 10,
+                "shooting-points": 10,
+                "dribling-points": 10,
+                "off-the-ball-movement-points": 10,
+                "heading-points": 10,
+            }
+        })
+        
+        initGame()
+        document.querySelector(".new-player").style.display = "none"
+        gameContainer.style.display = "grid"
+    }
 }
 
 function initGame() {
     populatePlayerInfo()
+    changeSection(activeSection) //starts in player section
 }
 
 function populatePlayerInfo () {
@@ -266,10 +271,9 @@ function calculateRepLevel(points) {
 //Changes the active section
 function changeSection(newSection) {
     document.getElementById(`section-${SECTIONS[activeSection]}`).style.display = "none"
-    document.getElementById(`section-${SECTIONS[newSection]}`).style.display = "flex"
+    document.getElementById(`section-${SECTIONS[newSection]}`).style.display = "grid"
     activeSection = newSection
 }
-changeSection(activeSection) //starts in player section
 
 //Sets the click events for the menu
 for (let i = 0; i < SECTIONS.length; i++) {
