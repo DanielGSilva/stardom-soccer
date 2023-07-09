@@ -157,7 +157,12 @@ div {
 #section-training .energy-bar-inner {
     background-color: blue;
     height: 100%;
-    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 1%;
+    white-space: nowrap;
+    text-align: center;
 }
 
 #section-training .training-session-card {
@@ -168,6 +173,10 @@ div {
     gap: 4px;
     color: white;
     padding: 4px;
+}
+
+#section-training #training-session-card-active {
+    display: none;
 }
 
 #section-training .training-session-card .training-session-card-title {
@@ -183,7 +192,7 @@ div {
     align-items: center;
 }
 
-#section-training .training-session-card .training-session-card-duration {
+#section-training .training-session-card .training-session-card-energy {
     grid-area: 3 / 1 / 4 / 2;
     display: flex;
     align-items: center;
@@ -215,6 +224,35 @@ div {
     background-color: brown;
 }
 
+#section-training #training-session-card-active .training-session-card-time-left-outer {
+    grid-area: 5 / 1 / 6 / 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    text-align: center;
+    align-items: center;
+    background-color: orange;
+}
+
+#section-training #training-session-card-active .training-session-card-time-left-inner {
+    background-color: royalblue;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 1%;
+    white-space: nowrap;
+    text-align: center;
+}
+
+#section-training #training-session-card-active .training-session-card-time-left-text {
+    grid-area: 5 / 1 / 6 / 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 #section-clubhouse {
     background-color: red;
 }
@@ -232,5 +270,60 @@ div {
 }
 
 #section-messages {
-    background-color: yellow;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-rows: 1fr 9fr;
+    gap: 4px;
+}
+
+#section-messages .messages-quantity {
+    grid-area: 1 / 1 / 2 / 2;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#section-messages .messages-write-button {
+    grid-area: 1 / 3 / 2 / 4;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#section-messages .messages-inbox {
+    grid-area: 2 / 1 / 3 / 4;
+    background-color: aqua;
+    display: grid;
+    grid-template-rows: auto;
+    gap: 4px;
+}
+
+#section-messages .messages-inbox .messages-inbox-summary {
+    display: grid;
+    grid-template-columns: 3fr 3fr 9fr 1fr;
+    gap: 4px;
+}
+
+#section-messages .messages-inbox .messages-inbox-summary-timestamp {
+    background-color: aliceblue;
+    border-radius: 0%;
+    text-align: center;
+}
+
+#section-messages .messages-inbox .messages-inbox-summary-sender {
+    background-color: aliceblue;
+    border-radius: 0%;
+    text-align: center;
+}
+
+#section-messages .messages-inbox .messages-inbox-summary-subject {
+    background-color: aliceblue;
+    border-radius: 0%;
+    padding-left: 4px;
+}
+
+#section-messages .messages-inbox .messages-inbox-summary-delete-button {
+    background-color: red;
+    border-radius: 1%;
 }

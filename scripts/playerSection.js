@@ -1,42 +1,5 @@
 import { ref, onValue, get } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js"
-
-const POSITIONS = ["Goal Keeper", "Defender", "Midfielder", "Attacker"]
-const SKILLS = [
-    ["Passing/Receiving", "passing-points"],
-    ["Speed", "speed-points"],
-    ["Endurance", "endurance-points"],
-    ["Footwork", "footwork-points"],
-    ["Diving", "diving-points"],
-    ["Catching", "catching-points"],
-    ["Reaction Speed", "reaction-speed-points"],
-    ["Tackling", "tackling-points"],
-    ["1v1 Defending", "1v1-defending-points"],
-    ["Intercepting", "intercepting-points"],
-    ["Decision Making", "decision-making-points"],
-    ["Touch and Ball Control", "touch-and-ball-control-points"],
-    ["Shooting", "shooting-points"],
-    ["Dribling", "dribling-points"],
-    ["Off the Ball Movement", "off-the-ball-movement-points"],
-    ["Heading", "heading-points"]
-]
-const POSITION_TO_SKILL_INDEXES = new Map()
-POSITION_TO_SKILL_INDEXES.set(0, [0, 1, 2, 3, 4, 5, 6])
-POSITION_TO_SKILL_INDEXES.set(1, [0, 1, 2, 7, 8, 9, 10])
-POSITION_TO_SKILL_INDEXES.set(2, [0, 1, 2, 9, 10, 11, 12])
-POSITION_TO_SKILL_INDEXES.set(3, [0, 1, 2, 12, 13, 14, 15])
-
-const SKILL_TIERS = [
-    [100, '#4169E1'],
-    [500, '#32CD32'],
-    [1000, '#FFFF00'],
-    [5000, '#FFA500'],
-    [10000, '#FF2400'],
-    [50000, '#663399'],
-    [100000, '#CD7F32'],
-    [200000, '#C0C0C0'],
-    [500000, '#FFD700'],
-    [1000000, "#28282B"]
-]
+import { POSITIONS, SKILLS, POSITION_TO_SKILL_INDEXES, SKILL_TIERS } from "./constants.js"
 
 export let populatePlayerInfo = function (playerId, database) {
     const playerInfoPath = `players/${playerId}/player-info`

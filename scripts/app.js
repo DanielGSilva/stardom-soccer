@@ -4,19 +4,11 @@ import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult, get
 import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js"
 import { setupMenu } from "./menu.js"
 import { populatePlayerInfo } from "./playerSection.js"
-
-const firebaseConfig = {
-    apiKey: "AIzaSyA_gjejepfFP_X5P8ARSKzj1q20K_82ujo",
-    authDomain: "stardom-soccer.firebaseapp.com",
-    databaseURL: "https://stardom-soccer-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "stardom-soccer",
-    storageBucket: "stardom-soccer.appspot.com",
-    messagingSenderId: "583019702852",
-    appId: "1:583019702852:web:f17cd95ec916f29b11aa11"
-}
+import { initTraining, updateEnergyBar, updateTrainingSection } from "./trainingSection.js"
+import { FIREBASE_CONFIG } from "./constants.js"
 
 // Initialize Firebase
-const fbApp = initializeApp(firebaseConfig)
+const fbApp = initializeApp(FIREBASE_CONFIG)
 const auth = getAuth(fbApp)
 const database = getDatabase(fbApp)
 
@@ -68,7 +60,7 @@ function createPlayer() {
     document.querySelector(".new-player").style.display = "flex"
     
     document.querySelector("#create-new-player-button").onclick = function (event) {
-        set(playerRef, {
+        set(player.playerRef, {
             "player-info": {
                 "name": document.getElementById("new-player-name").value,
                 "country": document.getElementById("new-player-country").value,
@@ -96,7 +88,8 @@ function createPlayer() {
                 "dribling-points": 10,
                 "off-the-ball-movement-points": 10,
                 "heading-points": 10,
-            }
+            },
+            "training": initTraining(Number(document.getElementById("new-player-position").value))
         })
         
         initGame()
@@ -107,6 +100,8 @@ function createPlayer() {
 
 function initGame() {
     populatePlayerInfo(player.playerId, database)
+    updateEnergyBar(player.playerId, database)
+    updateTrainingSection(player.playerId, database)
 }
 
 setupMenu()
