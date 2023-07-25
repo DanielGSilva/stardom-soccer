@@ -84,3 +84,7 @@ export const SKILL_TRAINING_DESCRIPTIONS = [
     "Off the Ball Movement",
     "Heading"
 ]
+
+//
+
+export const TOTAL_MESSAGES_ALLOWED = 25

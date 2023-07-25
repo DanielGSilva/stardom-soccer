@@ -1,3 +1,26 @@
+:root {
+    --main-green: #33FF61;
+    --dark-green-1: #29CC4F;
+    --dark-green-2: #198031;
+    --dark-green-3: #40804F;
+    --light-green-1: #80FF9D;
+    
+    --compl-red: #B30010;
+    --compl-pink: #FF3345;
+    
+    --triad-orange: #FF9919;
+    --triad-purple: #954DFF;
+    
+    --quad-red: #FF192E;
+    --quad-blue: #4D64FF;
+    --quad-yellow: #FFCD26;
+    
+    --brown-yellow: #FFDE73;
+    
+    --progress-bar-bg: #2F4F4F;
+    --progress-bar-inner: #4169E1;
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -9,6 +32,14 @@ div {
     border-radius: 10px;
 }
 
+input {
+    font-family: "Kanit", sans-serif;
+}
+
+textarea {
+    font-family: "Kanit", sans-serif;
+}
+
 .landing-page {
     display: flex;
     flex-direction: column;
@@ -16,7 +47,7 @@ div {
     align-items: center;
     width: 100%;
     max-width: 900px;
-    background-color: lightgreen;
+    background-color: var(--main-green);
     aspect-ratio: 5/4;
 }
 
@@ -27,7 +58,7 @@ div {
     align-items: center;
     width: 100%;
     max-width: 900px;
-    background-color: lightgreen;
+    background-color: var(--main-green);
     aspect-ratio: 5/4;
 }
 
@@ -38,7 +69,7 @@ div {
     gap: 10px;
     width: 100%;
     max-width: 900px;
-    background-color: lightgreen;
+    background-color: var(--light-green-1);
     aspect-ratio: 5/4;
     padding: 4px;
 }
@@ -51,7 +82,6 @@ div {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: burlywood;
 }
 
 .menu-item {
@@ -60,7 +90,7 @@ div {
     align-items: center;
     width: 13%;
     height: 90%;
-    background-color: beige;
+    background-color: var(--brown-yellow);
     transition: 0.5s;
 }
 
@@ -77,12 +107,12 @@ div {
 }
 
 #section-player #player-avatar {
-    background-color: burlywood;
+    background-color: var(--brown-yellow);
     grid-area: 1 / 1 / 2 / 2;
 }
 
 #section-player #player-info-description {
-    background-color: burlywood;
+    background-color: var(--brown-yellow);
     grid-area: 1 / 2 / 2 / 3;
     display: flex;
     flex-direction: row;
@@ -96,7 +126,7 @@ div {
 }
 
 #section-player #player-info {
-    background-color: burlywood;
+    background-color: var(--brown-yellow);
     grid-area: 1 / 3 / 2 / 4;
     display: flex;
     flex-direction: column;
@@ -107,7 +137,7 @@ div {
 }
 
 #section-player .outer-skill {
-    background-color: darkslategray;
+    background-color: var(--progress-bar-bg);
     grid-column: 1 / 4;
     grid-row-end: span 1;
     display: flex;
@@ -116,7 +146,6 @@ div {
 }
 
 #section-player .inner-skill {
-    background-color: lightskyblue;
     height: 40%;
     margin-left: 0.5%;
     display: flex;
@@ -129,14 +158,14 @@ div {
 
 #section-player #reputation-bar-outer {
     grid-area: 1 / 4 / 9 / 5;
-    background-color: white;
+    background-color: var(--progress-bar-bg);
     display: flex;
     flex-direction: column;
     justify-content: end;
 }
 
 #section-player #reputation-bar-outer #reputation-bar-inner {
-    background-color: blue;
+    background-color: var(--progress-bar-inner);
     width: 100%;
 }
 
@@ -148,14 +177,14 @@ div {
 
 #section-training .energy-bar-outer {
     grid-area: 1 / 1 / 1 / 3;
-    background-color: white;
+    background-color: var(--progress-bar-bg);
     display: flex;
     flex-direction: row;
     justify-content: begin;
 }
 
 #section-training .energy-bar-inner {
-    background-color: blue;
+    background-color: var(--progress-bar-inner);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -163,15 +192,15 @@ div {
     padding-left: 1%;
     white-space: nowrap;
     text-align: center;
+    color: white;
 }
 
 #section-training .training-session-card {
-    background-color: darkblue;
+    background-color: var(--brown-yellow);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr 2fr repeat(3, 1fr);
     gap: 4px;
-    color: white;
     padding: 4px;
 }
 
@@ -231,11 +260,11 @@ div {
     justify-content: start;
     text-align: center;
     align-items: center;
-    background-color: orange;
+    background-color: var(--progress-bar-bg);
 }
 
 #section-training #training-session-card-active .training-session-card-time-left-inner {
-    background-color: royalblue;
+    background-color: var(--progress-bar-inner);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -251,6 +280,7 @@ div {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    color: white;
 }
 
 #section-clubhouse {
@@ -270,8 +300,8 @@ div {
 }
 
 #section-messages {
-    grid-template-columns: 1fr 5fr 1fr;
-    grid-template-rows: 1fr 9fr;
+    grid-template-columns: 5rem 1fr 5rem;
+    grid-template-rows: 1.5em 1fr;
     gap: 4px;
 }
 
@@ -293,16 +323,20 @@ div {
 
 #section-messages .messages-inbox {
     grid-area: 2 / 1 / 3 / 4;
-    background-color: aqua;
     display: grid;
-    grid-template-rows: auto;
-    gap: 4px;
+    row-gap: 4px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    grid-auto-rows: 1.5rem;
 }
 
 #section-messages .messages-inbox .messages-inbox-summary {
-    display: grid;
-    grid-template-columns: 3fr 3fr 9fr 1fr;
-    gap: 4px;
+    display: none;
+    grid-template-columns: 9rem 9rem 1fr;
+    column-gap: 2px;
+    border-radius: 0%;
+    height: 1.5rem;
+    float: top;
 }
 
 #section-messages .messages-inbox .messages-inbox-summary-timestamp {
@@ -315,15 +349,100 @@ div {
     background-color: aliceblue;
     border-radius: 0%;
     text-align: center;
+    overflow: hidden;
 }
 
 #section-messages .messages-inbox .messages-inbox-summary-subject {
     background-color: aliceblue;
     border-radius: 0%;
     padding-left: 4px;
+    overflow: hidden;
 }
 
-#section-messages .messages-inbox .messages-inbox-summary-delete-button {
-    background-color: red;
-    border-radius: 1%;
+#section-messages .messages-read {
+    grid-area: 2 / 1 / 3 / 4;
+    display: none;
+    grid-template-columns: 9rem 1fr 5rem;
+    grid-template-rows: 1.5rem 1.5rem 1fr;
+    background-color: aliceblue;
+    overflow: hidden;
+}
+
+#section-messages .messages-read .messages-read-subject {
+    grid-area: 1 / 1 / 2 / 3;
+    background-color: var(--brown-yellow);
+    padding-left: 4px;
+}
+
+#section-messages .messages-read .messages-read-reply-button {
+    grid-area: 1 / 3 / 2 / 4;
+    background-color: var(--dark-green-3);
+    text-align: center;
+}
+
+#section-messages .messages-read .messages-read-timestamp {
+    grid-area: 2 / 1 / 3 / 2;
+    background-color: var(--brown-yellow);
+    text-align: center;
+}
+
+#section-messages .messages-read .messages-read-sender {
+    grid-area: 2 / 2 / 3 / 3;
+    background-color: var(--brown-yellow);
+    padding-left: 4px;
+}
+
+#section-messages .messages-read .messages-read-go-back-button {
+    grid-area: 2 / 3 / 3 / 4;
+    background-color: var(--quad-red);
+    text-align: center;
+}
+
+#section-messages .messages-read .messages-read-text {
+    grid-area: 3 / 1 / 4 / 5;
+    background-color: var(--brown-yellow);
+    overflow-y: scroll;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+#section-messages .messages-write {
+    grid-area: 2 / 1 / 3 / 4;
+    display: none;
+    grid-template-columns: 1fr 5rem;
+    grid-template-rows: 1.5rem 1.5rem 1fr;
+    background-color: aliceblue;
+    overflow: hidden;
+}
+
+#section-messages .messages-write .messages-write-subject {
+    grid-area: 1 / 1 / 2 / 2;
+    background-color: var(--brown-yellow);
+    padding-left: 4px;
+    
+}
+
+#section-messages .messages-write .messages-write-go-back-button {
+    grid-area: 1 / 2 / 2 / 3;
+    background-color: var(--quad-red);
+    text-align: center;
+}
+
+#section-messages .messages-write .messages-write-receiver {
+    grid-area: 2 / 1 / 3 / 2;
+    background-color: var(--brown-yellow);
+}
+
+#section-messages .messages-write .messages-write-send-button {
+    grid-area: 2 / 2 / 3 / 4;
+    background-color: var(--dark-green-3);
+    text-align: center;
+}
+
+#section-messages .messages-write .messages-write-text {
+    grid-area: 3 / 1 / 4 / 4;
+    background-color: var(--brown-yellow);
+    overflow-y: scroll;
+    padding-left: 4px;
+    padding-right: 4px;
 }

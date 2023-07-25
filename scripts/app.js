@@ -6,6 +6,7 @@ import { setupMenu } from "./menu.js"
 import { populatePlayerInfo } from "./playerSection.js"
 import { initTraining, updateEnergyBar, updateTrainingSection } from "./trainingSection.js"
 import { FIREBASE_CONFIG } from "./constants.js"
+import { updateMessagesSection } from "./messagesSection.js"
 
 // Initialize Firebase
 const fbApp = initializeApp(FIREBASE_CONFIG)
@@ -102,6 +103,7 @@ function initGame() {
     populatePlayerInfo(player.playerId, database)
     updateEnergyBar(player.playerId, database)
     updateTrainingSection(player.playerId, database)
+    updateMessagesSection(player.playerId, database)
 }
 
 setupMenu()
