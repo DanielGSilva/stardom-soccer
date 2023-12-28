@@ -22,6 +22,8 @@
 }
 
 body {
+    margin: 0;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,15 +42,108 @@ textarea {
     font-family: "Kanit", sans-serif;
 }
 
+@media (min-width: 640px) and (min-height: 360px) {
+    .landing-page {
+        max-width: 640px;
+        max-height: 360px;
+    }
+    
+    .new-player {
+        max-width: 640px;
+        max-height: 360px;
+    }
+    
+    .game-container {
+        max-width: 640px;
+        max-height: 360px;
+    }
+    
+    body {
+        font-size: xx-small;
+    }
+}
+
+@media (min-width: 800px) and (min-height: 450px) {
+    .landing-page {
+        max-width: 800px;
+        max-height: 450px;
+    }
+    
+    .new-player {
+        max-width: 800px;
+        max-height: 450px;
+    }
+    
+    .game-container {
+        max-width: 800px;
+        max-height: 450px;
+    }
+    
+    body {
+        font-size: x-small;
+    }
+}
+
+@media (min-width: 1280px) and (min-height: 720px) {
+    .landing-page {
+        max-width: 1280px;
+        max-height: 720px;
+    }
+    
+    .new-player {
+        max-width: 1280px;
+        max-height: 720px;
+    }
+    
+    .game-container {
+        max-width: 1280px;
+        max-height: 720px;
+    }
+}
+
+@media (min-width: 1600px) and (min-height: 900px) {
+    .landing-page {
+        max-width: 1600px;
+        max-height: 900px;
+    }
+    
+    .new-player {
+        max-width: 1600px;
+        max-height: 900px;
+    }
+    
+    .game-container {
+        max-width: 1600px;
+        max-height: 900px;
+    }
+}
+
+@media (min-width: 1920px) and (min-height: 1080px) {
+    .landing-page {
+        max-width: 1920px;
+        max-height: 1080px;
+    }
+    
+    .new-player {
+        max-width: 1920px;
+        max-height: 1080px;
+    }
+    
+    .game-container {
+        max-width: 1920px;
+        max-height: 1080px;
+    }
+}
+
 .landing-page {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    width: 100%;
-    max-width: 900px;
     background-color: var(--main-green);
-    aspect-ratio: 5/4;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16/9;
 }
 
 .new-player {
@@ -56,10 +151,10 @@ textarea {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    width: 100%;
-    max-width: 900px;
     background-color: var(--main-green);
-    aspect-ratio: 5/4;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16/9;
 }
 
 .game-container {
@@ -67,14 +162,15 @@ textarea {
     grid-template-columns: 1fr;
     grid-template-rows: 80% 1fr;
     gap: 10px;
+    background-color: var(--main-green);
     width: 100%;
-    max-width: 900px;
-    background-color: var(--light-green-1);
-    aspect-ratio: 5/4;
+    height: 100%;
+    aspect-ratio: 16/9;
     padding: 4px;
 }
 
 .section {
+    grid-area: 1 / 1 / 2 / 2;
     display: none;
 }
 
@@ -102,7 +198,7 @@ textarea {
 #section-player {
     display: grid;
     grid-template-columns: 6fr 7fr 6fr 1fr;
-    grid-template-rows: 7fr repeat(7, 1fr);
+    grid-template-rows: 1fr repeat(7, 1.5rem);
     gap: 4px 8px;
 }
 
@@ -146,12 +242,11 @@ textarea {
 }
 
 #section-player .inner-skill {
-    height: 40%;
-    margin-left: 0.5%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 1%;
+    padding-left: 1em;
     white-space: nowrap;
     color: white;
 }
